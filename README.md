@@ -1,5 +1,5 @@
 # Overview
-RASM is a simple assembler for the RISC-V assembly language.  This was developed while assisting someone in learning assembly language and it was easy and fun to implement!  RASM reads a source file and makes 2 passes through the instructions to create an executable version of the program.  The first pass creates a symbol table of registers and labels and the second pass does the actual translation into the executable format.
+RASM is a simple assembler for the RISC-V assembly language.  I wrote this while assisting someone in learning assembly language and it was easy and fun to implement!  RASM reads a source file and makes 2 passes through the instructions to create an executable version of the program.  The first pass creates a symbol table of registers and labels and the second pass does the actual translation into the executable format.
 
 ## Key features
 * Declare mnemonic names for registers
@@ -81,3 +81,6 @@ ERASE:
 ```
 # License
 Licensed under [Creative Commons Non-Commercial Attribution 3.0](https://creativecommons.org/licenses/by-nc/3.0/legalcode).  For the avoidance of doubt, use as part of course materials or requirements at an educational institution that charges tuition is a commercial use and requires a commercial license.  Use by students for personal education is not a commercial use.  
+
+# Warranty
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

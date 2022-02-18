@@ -1,0 +1,77 @@
+prog:	bounce
+
+declare:
+	X_POS	X1
+	X_DIR	X2
+	X_MAX	X3
+	COLOR	X4
+	POS		X5
+	BASE	X6
+	COUNT	X7
+	SPEED	X8
+	Y_POS	X9
+	Y_DIR	X10
+	Y_MAX	X11
+	TMP		X12
+
+code:
+START:
+	set X_POS=0
+	set X_DIR=2
+	set X_MAX=31
+	set BASE=BITMAP:
+	lui BASE, 4096
+	addi BASE, BASE, -1024
+	set COLOR=55
+	set POS=BASE
+	set SPEED=1000
+	set Y_POS=5
+	set Y_DIR=-1
+	set Y_MAX=31
+	
+MOVE:
+	set POS=BASE
+	set POS=POS+X_POS
+	slli TMP,Y_POS,5
+	set POS=POS+TMP
+	sb COLOR,POS[0]	
+	
+	set X_POS=X_POS+X_DIR
+	set Y_POS=Y_POS+Y_DIR
+	
+CHECK_X_OVERFLOW:
+	jump CHECK_X_UNDERFLOW if X_POS < X_MAX
+	set X_DIR=-2
+	set X_POS=X_MAX
+	goto CHECK_Y_OVERFLOW:
+	
+CHECK_X_UNDERFLOW:
+	jump CHECK_Y_OVERFLOW: if X_POS >= 0
+	set X_DIR=2
+	set X_POS=0
+
+CHECK_Y_OVERFLOW:
+	jump CHECK_Y_UNDERFLOW: if Y_POS < Y_MAX
+	set Y_DIR=-1
+	set Y_POS=Y_MAX
+	goto DELAY:
+
+CHECK_Y_UNDERFLOW:
+	jump DELAY: if Y_POS >= 0
+	set Y_DIR=1
+	set Y_POS=0
+
+
+DELAY:
+	set COUNT=0
+DELAY_LOOP:
+	set COUNT=COUNT+1
+	jump DELAY_LOOP: if COUNT < SPEED
+	
+ERASE:
+	sb X0,POS[0]
+	goto MOVE: 
+	
+	
+	end
+

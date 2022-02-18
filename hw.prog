@@ -1,0 +1,27 @@
+// hello world
+// 
+prog: hw
+
+declare:
+	PTR		X1
+	STDOUT	X2
+	CHAR	X3
+	
+code:
+START:
+	set STDOUT=CONSOLE:
+	set PTR=MESSAGE:
+	
+PRINTCHAR:
+	set CHAR=PTR[0]
+	JUMP EXIT: if CHAR == 0
+	sb CHAR, STDOUT[0]
+	set PTR=PTR+1
+	GOTO PRINTCHAR:
+	
+EXIT:
+	end
+	
+MESSAGE:
+string: Hello World!
+
